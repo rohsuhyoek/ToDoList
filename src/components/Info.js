@@ -83,6 +83,9 @@ const Info = () => {
     setToDos((el) => el.filter((_, item) => index !== item));
   };
 
+  const UpBtn = () => {
+    setToDo(<input value={toDos} type="text" />);
+  };
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -97,11 +100,11 @@ const Info = () => {
           <ClickButton>Click</ClickButton>
           <ClickButton onClick={deleteButton}>Delete</ClickButton>
           <ul>
-            {toDos.map((item, key) => (
-              <ClickLi key={key}>
+            {toDos.map((item, idx) => (
+              <ClickLi key={idx}>
                 {item}
-
-                <DeleteStyle onClick={() => CheckBtn(key)}>X</DeleteStyle>
+                <button onClick={UpBtn}>버</button>
+                <DeleteStyle onClick={() => CheckBtn(idx)}>X</DeleteStyle>
               </ClickLi>
             ))}
           </ul>
